@@ -1,0 +1,137 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+  overflow: hidden;
+}
+
+.sidebar{
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  transition: 0.5s;
+  
+
+}
+.sidebar .profile-pic img{
+  border-radius: 100%;
+  padding: 3px;
+  border: solid 4px rgb(7, 7, 189);
+}
+.sidebar p {
+  color:rgba(255, 255, 255, 0.882)  ;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.sidebar .page-sign{
+  color:rgba(255, 255, 255, 0.807)  ;
+
+  border:solid 2px rgba(255, 255, 255, 0.567)  ;
+  font-size: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  word-break: keep-all;
+}
+.sidebar ul li {
+  list-style-type: none;
+
+}
+.sidebar .links {
+  color:rgba(255, 255, 255, 0.677);
+ font-style: 30px;
+ text-decoration: none;
+ transition: 0.3s;
+ color:rgba(255, 255, 255, 0.677);
+
+  
+}
+.sidebar .links:hover{
+  color: white;
+
+}
+.sidebar .links a:hover{
+  color: white;
+
+}
+.home{
+
+}
+
+.home .post-card{
+ background-color:#D1D5D8;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  margin: 75px 0;
+ 
+}
+
+
+.PostModal{
+  height: 100vh;
+  position: absolute;
+  width : 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.035);
+  z-index: 12;
+
+}
+.PostModal .body{
+  height: fit-content;
+  max-height: 95vh;
+  overflow-y: scroll;
+  scrollbar-width: 1;
+  background-color: #ffff;
+  border-radius: 20px;
+  border:solid black 1px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+
+/* faq section design */
+.faq  {
+  overflow-y: scroll;
+  scrollbar-width: 30px;
+  height: 100vh;
+}
+
+@media screen and (max-width:576px){
+  .sidebar{
+    left: -500px;
+    position: absolute;
+    width: 270px;
+    z-index: 100;
+  }
+
+  /* close side bar on link click   */
+  
+
+  .sidebar .profile-pic img{
+    width: 130px;
+    height: 130px;
+  }
+  .sidebar p {
+    color:rgba(255, 255, 255, 0.836)  ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar .page-sign{
+    border:solid 2px rgba(255, 255, 255, 0.327)  ;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 10px;
+  }
+  .faq iframe{
+    max-width: 100%;
+  }
+  
+}
+
