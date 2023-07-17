@@ -16,10 +16,6 @@ const postSchema=new mongoose.Schema({
     text:{
         type:String
     },
-    status:{ 
-        type:Boolean,
-        default:true
-    },
     page_id:{
         type:String,
         required:true

@@ -32,17 +32,10 @@ fileFilter:(req,file,cb)=>{
   }
 }});
 
-
-
-
 router.use('/addPost',upload.single('img'));
 router.use('/editPost',upload.single('img'));
-
- router.use("/",(req,res,next)=>{
-  
-    next()
- })      
 router.use(verifyAuth)
+
 const { getPost,addPost,deletePost ,editPost} =require("../controller/page");
 router.route("/getPost").post(getPost);
 router.route("/addPost").post(addPost);

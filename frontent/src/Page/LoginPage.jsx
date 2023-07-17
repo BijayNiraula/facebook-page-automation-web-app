@@ -2,13 +2,12 @@ import React from "react";
 import { memo } from "react";
 import { PulseLoader } from "react-spinners";
 import { Link } from "react-router-dom";
-import { useDispatch , useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { verifyLoginDetails } from "../store/slices/authSlice";
 function LoginPage(props) {
-  // const { login, isLoading } = useAuthContext();
-  const dispatch=useDispatch()
-  const status=useSelector((state)=>state.auth.status)
-  const handleLogin=(e)=>{
+  const dispatch = useDispatch()
+  const status = useSelector((state) => state.auth.status)
+  const handleLogin = (e) => {
     e.preventDefault()
     dispatch(verifyLoginDetails(e))
   }
@@ -68,7 +67,7 @@ function LoginPage(props) {
                       Remember me{" "}
                     </label>
                   </div>
-                  {status=="LOADING" ? (
+                  {status == "LOADING" ? (
                     <button
                       disabled
                       type="button"
@@ -91,8 +90,8 @@ function LoginPage(props) {
                   )}
                   <p className="text-end  pt-4 ">
                     {" "}
-                    <Link to="/faq"  className="text-light ">
-                   FAQ ?
+                    <Link to="/faq" className="text-light ">
+                      FAQ ?
                     </Link>{" "}
                   </p>
                 </form>

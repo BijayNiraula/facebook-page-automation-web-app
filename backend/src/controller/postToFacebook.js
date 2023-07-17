@@ -7,6 +7,7 @@ const mime=require("mime")
 const postToFacebook = () => {
   
   setInterval(async () => {
+  console.log("post to facebook loop running")
     try{
     const posts = await Post.find({time:{$lte:Date.now()}}).sort({ time: 1 });
      
@@ -53,15 +54,12 @@ const postToFacebook = () => {
         } else {
           console.log({ error: "could not able to post in this page :" + post.page_id })
         }
-
-    
     })
   }
   catch(e){
     console.log(e)
     console.log({error:"some error occured"})
   }
-  console.log("post to facebook loop running")
   }, 10000)
 }
 module.exports = postToFacebook

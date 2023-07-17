@@ -3,21 +3,21 @@ import { memo } from "react";
 import { useRef } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { warningToast } from "../module/toast";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { closeModal } from "../store/slices/editPostModalSlice";
 import { editPosts } from "../store/slices/postsSlice";
 
 function EditPostModal(props) {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const PreviewImg = useRef();
   const loadingBtn = useRef();
   const uploadFileInput = useRef();
   const uploadBtn = useRef();
-  const {open,data}=useSelector((state)=>state.editPostModal)
-  if(!open){
+  const { open, data } = useSelector((state) => state.editPostModal)
+  if (!open) {
     return (<></>)
   }
-   const handleClosePostModal=()=>{
+  const handleClosePostModal = () => {
     dispatch(closeModal())
   }
 
@@ -25,8 +25,8 @@ function EditPostModal(props) {
 
   const loadImg = (d) => {
     const files = d.target.files[0];
-    if (files.size >= 4194304-800) {
-      warningToast("file size must be less than 5 mb");
+    if (files.size >= 4194304 - 800) {
+      warningToast("file size must be less than 4 mb");
       uploadFileInput.current.value = "";
       PreviewImg.current.src = "";
       return;
@@ -40,11 +40,11 @@ function EditPostModal(props) {
     }
   };
 
-  
-  const validateDate=(e)=>{
+
+  const validateDate = (e) => {
     if (Date.now() > new Date(e.target.value).getTime()) {
       warningToast("please provide the future date");
-      e.target.value=""
+      e.target.value = ""
     }
   }
 
@@ -54,14 +54,14 @@ function EditPostModal(props) {
     e.preventDefault();
     loadingBtn.current.style.display = "block";
     uploadBtn.current.style.display = "none";
-    const result = await dispatch(editPosts(e,data._id))
+    const result = await dispatch(editPosts(e, data._id))
     loadingBtn.current.style.display = "none";
     uploadBtn.current.style.display = "block";
     if (result) {
       handleClosePostModal()
     }
   };
-console.log("edit post modal rerender")
+  console.log("edit post modal rerender")
   return (
     <div className="PostModal row p-0 m-0 d-flex justify-content-center align-items-center">
       <div className="body col-sm-4 col-11 ">
@@ -123,7 +123,7 @@ console.log("edit post modal rerender")
               Publishd On :{" "}
             </label>
             <input
-            onChange={validateDate}
+              onChange={validateDate}
               required
               type="datetime-local"
               id="date"

@@ -3,7 +3,7 @@ const jwt=require("jsonwebtoken")
 const verifyAuth=(req,res,next)=>{
     try{
         if(req.body.auth){
-            const decoded = jwt.verify(req.body.auth,process.env.JwtKey);
+            const decoded = jwt.verify(req.body.auth,process.env.JWT_KEY);
              req.body.page_id=decoded.page_id;
              req.body.page_access_token=decoded.page_access_token
                 next();

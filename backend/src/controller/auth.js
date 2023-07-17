@@ -10,7 +10,7 @@ const login=async(req,res)=>{
       res.send({error:"could not verify the page details"})
      }else{
       const data={ page_id,page_access_token }
-      const JwtKey=process.env.JwtKey;
+      const JwtKey=process.env.JWT_KEY;
       const  token= jwt.sign(
         data
       , JwtKey, { expiresIn: '48h' });

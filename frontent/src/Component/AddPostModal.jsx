@@ -7,7 +7,7 @@ import { addPosts } from "../store/slices/postsSlice";
 import { useDispatch } from "react-redux";
 
 function AddPostModal(props) {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const loadingBtn = useRef();
   const uploadBtn = useRef();
   const PreviewImg = useRef();
@@ -15,8 +15,8 @@ function AddPostModal(props) {
 
   const loadImg = (d) => {
     const files = d.target.files[0];
-    if (files.size >= 4194304-800) {
-      warningToast("file size must be less than 5 mb");
+    if (files.size >= 4194304 - 800) {
+      warningToast("file size must be less than 4 mb");
       uploadFileInput.current.value = "";
       PreviewImg.current.src = "";
       return;
@@ -37,10 +37,10 @@ function AddPostModal(props) {
   };
 
 
-  const validateDate=(e)=>{
+  const validateDate = (e) => {
     if (Date.now() > new Date(e.target.value).getTime()) {
       warningToast("please provide the future date");
-      e.target.value=""
+      e.target.value = ""
     }
   }
 
@@ -50,12 +50,12 @@ function AddPostModal(props) {
     e.preventDefault();
     loadingBtn.current.style.display = "block";
     uploadBtn.current.style.display = "none";
-    const result=await dispatch( addPosts(e));
+    const result = await dispatch(addPosts(e));
     console.log(result)
     loadingBtn.current.style.display = "none";
     uploadBtn.current.style.display = "block";
     if (result) {
-    e.target.reset();
+      e.target.reset();
       closeModal();
     }
   };
@@ -114,7 +114,7 @@ function AddPostModal(props) {
           <div className=" d-flex flex-column mb-4 mt-3 ">
             <label htmlFor=" mt-2 fw-bold ">Text : </label>
             <input
-      
+
               type="text"
               className="px-2 py-1 border border-dark   "
               name=""
@@ -124,7 +124,7 @@ function AddPostModal(props) {
               Publishd On :{" "}
             </label>
             <input
-            onChange={validateDate}
+              onChange={validateDate}
               type="datetime-local"
               required
               id="publish_date"

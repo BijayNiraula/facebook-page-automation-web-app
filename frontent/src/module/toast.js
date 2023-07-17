@@ -1,5 +1,5 @@
 import { ToastContainer, toast } from 'react-toastify';
-const warningToast=(text)=>{
+const warningToast = (text) => {
     toast.warn(text, {
         position: "top-center",
         autoClose: 5000,
@@ -9,10 +9,10 @@ const warningToast=(text)=>{
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });
-    
+    });
+
 }
-const errorToast=(text)=>{
+const errorToast = (text) => {
     toast.error(text, {
         position: "top-center",
         autoClose: 5000,
@@ -22,10 +22,10 @@ const errorToast=(text)=>{
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });
-    
+    });
+
 }
-const successToast=(text)=>{
+const successToast = (text) => {
     toast.success(text, {
         position: "top-center",
         autoClose: 5000,
@@ -35,11 +35,11 @@ const successToast=(text)=>{
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });
-    
+    });
+
 }
 
 
 
 
-export {warningToast,errorToast,successToast}
+export { warningToast, errorToast, successToast }

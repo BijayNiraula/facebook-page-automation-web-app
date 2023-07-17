@@ -48,7 +48,6 @@ export const verifyLoginDetails=(e)=>{
           
               dispatch(login(result.data));
             successToast("login successfully");
-            // return;
           } else {
             errorToast(result.error);
           }
