@@ -25,7 +25,7 @@ server.use("/api/auth",authRoute);
  
 const startServer=async()=>{
     await dbConnect();
-    //  postToFacebook()
+     postToFacebook()
 
     server.listen(PORT, ()=>{
         console.log("server is running")

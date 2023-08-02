@@ -11,9 +11,16 @@ export const addPosts = (e) => {
       const img = e.target[0].files[0];
       const text = e.target[2].value;
       const publish_date = e.target[3].value;
+      const date=new Date(publish_date);
+      const utcTimeStamp=date.getTime();
+      if(img || text){
+      }else{
+        warningToast("text and img both cannot be empty")
+        return false
+      }
       if (Date.now() > new Date(publish_date).getTime()) {
         warningToast("please provide the future date");
-        return;
+        return false;
       }
       const formdata = new FormData();
       if (img) {
@@ -22,6 +29,7 @@ export const addPosts = (e) => {
       if (text) {
         formdata.append("text", text);
       }
+      formdata.append("utcTimeStamp",utcTimeStamp)
       formdata.append("publish_date", publish_date);
       formdata.append("auth", JSON.parse(sessionStorage.getItem("auth")).token);
       const res = await fetch(
@@ -89,12 +97,15 @@ export const editPosts = (e, _id) => {
       const img = e.target[0].files[0];
       const text = e.target[2].value;
       const publish_date = e.target[3].value;
+      const date=new Date(publish_date);
+      const utcTimeStamp=date.getTime()
       const formdata = new FormData();
       if (img) {
         formdata.append("img", img);
       }
       formdata.append("text", text);
       formdata.append("_id", _id);
+      formdata.append("utcTimeStamp",utcTimeStamp);
       formdata.append("publish_date", publish_date);
       formdata.append("auth", JSON.parse(sessionStorage.getItem("auth")).token);
       const res = await fetch(
@@ -118,8 +129,7 @@ export const editPosts = (e, _id) => {
     }
     return false;
 
-  })
-}
+  })}
 
 
 

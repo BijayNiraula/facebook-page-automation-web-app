@@ -3,7 +3,7 @@ import { memo } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
-import { openModal } from "../store/slices/editPostModalSlice";
+import { openModal } from "../store/slices/controlEditPostModalSlice";
 import { deletePost } from "../store/slices/postsSlice";
 function PostCard(props) {
 

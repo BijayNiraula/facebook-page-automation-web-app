@@ -63,7 +63,7 @@ function AddPostModal(props) {
   console.log("add post modal rerender");
   return (
     <div className="PostModal row p-0 m-0 d-flex justify-content-center align-items-center">
-      <div className="body col-sm-4 col-11 ">
+      <div className="body col-sm-6 col-lg-4 col-11 ">
         <div className=" d-flex justify-content-end">
           <button
             onClick={() => closeModal()}
@@ -120,7 +120,7 @@ function AddPostModal(props) {
               name=""
               id="txt"
             />
-            <label for="publish_date" className=" mt-3 fw-bold">
+            <label htmlFor="publish_date" className=" mt-3 fw-bold">
               Publishd On :{" "}
             </label>
             <input

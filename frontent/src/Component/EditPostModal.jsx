@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { warningToast } from "../module/toast";
 import { useSelector, useDispatch } from "react-redux";
-import { closeModal } from "../store/slices/editPostModalSlice";
+import { closeModal } from "../store/slices/controlEditPostModalSlice";
 import { editPosts } from "../store/slices/postsSlice";
 
 function EditPostModal(props) {
@@ -64,7 +64,7 @@ function EditPostModal(props) {
   console.log("edit post modal rerender")
   return (
     <div className="PostModal row p-0 m-0 d-flex justify-content-center align-items-center">
-      <div className="body col-sm-4 col-11 ">
+      <div className="body col-sm-6 col-lg-4 col-11 ">
         <div className="d-flex   justify-content-end ">
           <button
             onClick={() => handleClosePostModal()}
@@ -119,7 +119,7 @@ function EditPostModal(props) {
               name=""
               id="txt"
             />
-            <label for="date" className=" mt-3 fw-bold">
+            <label htmlFor="date" className=" mt-3 fw-bold">
               Publishd On :{" "}
             </label>
             <input

@@ -13,7 +13,6 @@ function SideBar(props) {
   return (
     <div className="mt-4  d-flex flex-column justify-content-between " style={{ height: "80%" }}>
       <div className=" ">
-
         <a href={`https://www.facebook.com/profile.php?id=${data.page_id}`} target="_blank" className=" text-decoration-none d-flex  flex-column align-items-center justify-content-center profile-pic">
           <img
             className="img-fluid"
@@ -31,7 +30,7 @@ function SideBar(props) {
         <div className="align-items-center flex-column d-flex">
           <ul className="mt-4">
             <li>
-              <Link to="/" className="links  " onClick={() => props.controlSideBar(false)} >
+              <Link to="/" className="links  "  >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -48,7 +47,7 @@ function SideBar(props) {
 
             <br />
             <li>
-              <Link to="/contact" className="links " onClick={() => props.controlSideBar(false)}>
+              <Link to="/contact" className="links " >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -65,7 +64,7 @@ function SideBar(props) {
 
             <br />
             <li>
-              <Link to="/faq" className="links " onClick={() => props.controlSideBar(false)}>
+              <Link to="/faq" className="links " >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"

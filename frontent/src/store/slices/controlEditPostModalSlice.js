@@ -3,7 +3,7 @@ const initialState = {
     open: false,
     data: {}
 }
-const editPostModalSlice = createSlice({
+const cotrolEditPostModalSlice = createSlice({
     name: "editPostModal",
     initialState,
     reducers: {
@@ -19,5 +19,5 @@ const editPostModalSlice = createSlice({
 
 })
 
-export default editPostModalSlice.reducer;
-export const { openModal, closeModal } = editPostModalSlice.actions
+export default cotrolEditPostModalSlice.reducer;
+export const { openModal, closeModal } = cotrolEditPostModalSlice.actions

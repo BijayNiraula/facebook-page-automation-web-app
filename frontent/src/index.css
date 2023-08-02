@@ -107,7 +107,6 @@ body {
   scrollbar-width: 30px;
   height: 100vh;
 }
-
 @media screen and (max-width:576px) {
   .sidebar {
     left: -500px;

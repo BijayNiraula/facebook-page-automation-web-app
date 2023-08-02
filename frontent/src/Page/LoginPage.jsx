@@ -38,7 +38,7 @@ function LoginPage(props) {
                       id="typeEmailX"
                       className="form-control "
                     />
-                    <label className="form-label" for="typeEmailX">
+                    <label className="form-label" htmlFor="typeEmailX">
                       Page Id
                     </label>
                   </div>
@@ -48,7 +48,7 @@ function LoginPage(props) {
                       id="typePasswordX"
                       className="form-control form-control"
                     />
-                    <label className="form-label" for="typePasswordX">
+                    <label className="form-label" htmlFor="typePasswordX">
                       Page Access Token
                     </label>
                   </div>
@@ -61,7 +61,7 @@ function LoginPage(props) {
                     />
                     <label
                       className="form-check-label ms-2"
-                      for="form1Example3"
+                      htmlFor="form1Example3"
                     >
                       {" "}
                       Remember me{" "}

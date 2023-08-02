@@ -10,7 +10,7 @@ const postToFacebook = () => {
   console.log("post to facebook loop running")
     try{
     const posts = await Post.find({time:{$lte:Date.now()}}).sort({ time: 1 });
-     
+     console.log(posts)
     posts.forEach(async (post)=>{
       var url;
       const formdata=new FormData();
@@ -40,10 +40,10 @@ const postToFacebook = () => {
         const result = await response.json();
         console.log(result)
         if (!result.error) {
-            // delete the post from db
+            // delete the post from db if posted to facebook
        await  Post.deleteOne({_id:post._id,page_id:post.page_id})
 
-       // delete the post img if exists
+       // delete the img  if posted to facebook
        if(post.img){
          const imgPath= path.join(__dirname+"../../../","public",post.img.replace(`${process.env.BASE_URL}`,"")).trim()
          if(fs.existsSync(imgPath)){

@@ -5,19 +5,19 @@ function Header(props) {
   const sideBarCloseBtn = useRef();
   const sideBarOpenBtn = useRef();
 
-  const controlSideBar = (action) => {
-    if (action) {
-      props.sidebar.current.style.left = "0px";
-      sideBarCloseBtn.current.style.display = "block"
-      sideBarOpenBtn.current.style.display = "none"
-    } else {
-      sideBarCloseBtn.current.style.display = "none"
-      sideBarOpenBtn.current.style.display = "block"
-      props.sidebar.current.style.left = "-500px";
-    }
-  };
-
-
+      
+    const controlSideBar = (action) => {
+      if (action) {
+        props.sidebar.current.style.left = "0px";
+        sideBarCloseBtn.current.style.display = "block"
+        sideBarOpenBtn.current.style.display = "none"
+      } else {
+        props.sidebar.current.style.left = "-500px";
+        sideBarCloseBtn.current.style.display = "none"
+        sideBarOpenBtn.current.style.display = "block"
+      }
+    };
+  
   console.log("header rerender")
   return (
     <header className="bg-dark pt-2  ">

@@ -2,14 +2,23 @@ const Post = require("../models/posts")
 const fs=require("fs")
 require('dotenv').config()
 const path=require("path")
+
+
+
+//  add post function 
 const addPost = async (req, res) => {
-    const { text, page_access_token, page_id, publish_date } = req.body;
+    const { text, page_access_token, page_id, publish_date,utcTimeStamp } = req.body;
     try {
-        if (publish_date && text || req.file) {
-            const obj = { text, page_access_token, page_id, publish_date,time:new Date(publish_date).getTime() };
+        if (publish_date && utcTimeStamp && text || req.file) {
+            const obj = { text, page_access_token, page_id, publish_date,time:utcTimeStamp };
             if (req.file) {
-                const imgLink = req.file.path.replace("public\\files\\", "");
-                obj.img = `${process.env.BASE_URL}/files/${imgLink} `
+                  // code for local window machine
+                // const imgLink = req.file.path.replace("public\\files\\", "");
+                // obj.img = `${process.env.BASE_URL}/files/${imgLink} `
+
+                //    code  for server 
+                const imgLink = req.file.path.replace("public/", "");
+                obj.img = `${process.env.BASE_URL}/${imgLink} `
             }
             const result = await Post.create(obj)
             if (result) {
@@ -28,6 +37,9 @@ const addPost = async (req, res) => {
 }
 
 
+
+
+// get post function 
 const getPost = async (req, res) => {
     const { page_id} = req.body
     try {
@@ -41,6 +53,8 @@ const getPost = async (req, res) => {
 }
 
 
+
+// delete post function 
 const deletePost = async (req, res) => {
     const { _id, page_id } = req.body;
     try {
@@ -68,15 +82,23 @@ const deletePost = async (req, res) => {
 }
 
 
+// edit post funtiion 
 const editPost = async (req, res) => {
-    const { _id, page_id, page_access_token, text, publish_date } = req.body;
+    const { _id, page_id, page_access_token, text, publish_date,utcTimeStamp } = req.body;
     try {
-        if (publish_date && _id && text||text=="") {
+        if (publish_date && utcTimeStamp && _id && text||text=="") {
             const oldPostData=await Post.findOne({_id,page_id}).select("text _id page_id img time publish_date ");
-            const obj = { text,page_access_token, publish_date,time:new Date(publish_date).getTime()};
+            const obj = { text,page_access_token, publish_date,time:utcTimeStamp};
             if (req.file) {
-                const imgLink = req.file.path.replace("public\\files\\", "");
-                obj.img = `${process.env.BASE_URL}/files/${imgLink} `
+
+                //   for local window machine
+                // const imgLink = req.file.path.replace("public\\files\\", "");
+                // obj.img = `${process.env.BASE_URL}/files/${imgLink} `
+
+                // for server
+                const imgLink =  req.file.path.replace("public/", "");
+                obj.img = `${process.env.BASE_URL}/${imgLink} `
+
                  if(oldPostData.img){
                   const oldFilePath= path.join(__dirname+"../../../","public",oldPostData.img.replace(`${process.env.BASE_URL}`,"")).trim()
                   if(fs.existsSync(oldFilePath)){
