@@ -15,7 +15,7 @@ function FAQ() {
               oallowfullscreen="oallowfullscreen"
               webkitallowfullscreen="webkitallowfullscreen"
               className='' width="560" height="315"
-              src="https://www.youtube.com/embed/5ob6BGmlShE"
+              src="https://www.youtube.com/embed/Y_BqWPhXVE0"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" >
             </iframe>
