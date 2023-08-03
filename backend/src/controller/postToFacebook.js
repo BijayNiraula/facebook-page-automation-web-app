@@ -60,6 +60,6 @@ const postToFacebook = () => {
     console.log(e)
     console.log({error:"some error occured"})
   }
-  }, 10000)
+  }, 60000)
 }
 module.exports = postToFacebook
