@@ -19,21 +19,6 @@ This is a full-stack web application built with React, Bootstrap, HTML, React Re
 - File upload and deletion for post attachments.
 - Utilizes Facebook Graph API for interacting with Facebook pages.
 
-## Setup Instructions
-To run the project locally, follow these steps:
-
-1. Clone the repository to your local machine.
-2. Install Node.js and npm (Node Package Manager) if not already installed.
-3. Navigate to the root directory of the project and run `npm install` to install the required dependencies.
-4. Create a `.env` file in the root directory and add the necessary environment variables:
-   - `MONGODB_URI`: MongoDB connection string
-   - `JWT_SECRET`: Secret key for JWT token generation
-   - `FACEBOOK_APP_ID`: Your Facebook App ID
-   - `FACEBOOK_APP_SECRET`: Your Facebook App Secret
-5. Start the server by running `npm run server` command.
-6. Change directory to the `client` folder and run `npm install` to install frontend dependencies.
-7. Start the frontend development server with `npm start`.
-8. The application should now be running locally. Access it by visiting `http://localhost:3000` in your web browser.
 
 ## Usage
 - Log in using your page id and page access token ( for demo used below credentials for login ) :
