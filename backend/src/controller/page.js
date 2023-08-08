@@ -12,13 +12,13 @@ const addPost = async (req, res) => {
         if (publish_date && utcTimeStamp && text || req.file) {
             const obj = { text, page_access_token, page_id, publish_date,time:utcTimeStamp };
             if (req.file) {
-                  // code for local window machine
-                const imgLink = req.file.path.replace("public\\files\\", "");
-                obj.img = `${process.env.BASE_URL}/files/${imgLink} `
+                //   // code for local window machine
+                // const imgLink = req.file.path.replace("public\\files\\", "");
+                // obj.img = `${process.env.BASE_URL}/files/${imgLink} `
 
-                //    code  for server 
-                // const imgLink = req.file.path.replace("public/", "");
-                // obj.img = `${process.env.BASE_URL}/${imgLink} `
+                   // code  for server 
+                const imgLink = req.file.path.replace("public/", "");
+                obj.img = `${process.env.BASE_URL}/${imgLink} `
             }
             const result = await Post.create(obj)
             if (result) {
@@ -92,12 +92,12 @@ const editPost = async (req, res) => {
             if (req.file) {
 
                 //   for local window machine
-                const imgLink = req.file.path.replace("public\\files\\", "");
-                obj.img = `${process.env.BASE_URL}/files/${imgLink} `
+                // const imgLink = req.file.path.replace("public\\files\\", "");
+                // obj.img = `${process.env.BASE_URL}/files/${imgLink} `
 
                 // for server
-                // const imgLink =  req.file.path.replace("public/", "");
-                // obj.img = `${process.env.BASE_URL}/${imgLink} `
+                const imgLink =  req.file.path.replace("public/", "");
+                obj.img = `${process.env.BASE_URL}/${imgLink} `
 
                  if(oldPostData.img){
                   const oldFilePath= path.join(__dirname+"../../../","public",oldPostData.img.replace(`${process.env.BASE_URL}`,"")).trim()
